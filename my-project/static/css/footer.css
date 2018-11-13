@@ -1,0 +1,23 @@
+.footer{
+	width: 100%;
+	padding: 20px 0;
+	margin-top: 20px;
+	background-image: url(../img/lxbg.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+	color: #FFFFFF;
+}
+.footer .contactEN{
+	font-size: 24px;
+    line-height: 30px;
+}
+.footer .contactZH{
+	font-size: 14px;
+}
+.footer .address,.footer .phone,.footer .email,.footer .record{
+	    margin: 0 0 10px;
+}
+.footer .address{
+	margin-top: 30px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建一个Vue实例</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app"><p>{{foo}}</p><button v-on:click="foo = 'baz'">change content</button></div>
+    <div id="example">
+       <p>{{a}}</p> 
+       <button v-on:click= "a= a+1">123</button>
+    </div>
+    <script>
+        var data =  { a : 1};
+        var vm = new Vue({
+            el: "#example",
+            data : data
+        })
+        console.log(data.a == vm.a) //true
+        vm.a = 2;
+        console.log(data.a); //2  设置vue属性会影响原始数据
+        data.a = 3;
+        console.log(vm.a); //3 同样设置原始数据 也会影响vue属性
+
+        vm.b ='hi';
+        console.log(vm.b)
+        
+        var obj = {foo:'bar'}
+        Object.freeze(obj) //使用此属性 数据将不会发生改变
+        new Vue({
+            el: '#app',
+            data: obj,
+            created() {
+                console.log('foo is ' + this.foo)
+            },
+            
+        })
+        vm.$watch('a',function(newValue,oldValue){ //当a的值改变是触发 回调接收俩个参数 一个新值，一个旧值
+            console.log(oldValue);
+            console.log(newValue)
+        })
+    </script>
+</body>
+</html>

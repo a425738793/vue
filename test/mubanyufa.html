@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板语法</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span>{{msg}}</span>
+        <span v-once>{{msg}}</span>
+        <hr>
+        <span>{{rawHtml}}</span>
+        <span v-html= 'rawHtml'></span>
+        <hr>
+        <div v-bind:id="dynamicId"></div>
+        <button v-bind:disabled="isButtonDisabled">Button</button>
+        <div>{{number + 1}}</div>
+        <span>{{ok? 'yes':'no'}}</span>
+        <p>{{message.split('').reverse().join('')}}</p>
+        <div v-bind:id="'list-' + id"></div>
+    </div>
+    <script>
+    var app = new Vue({
+         el:'#app',
+         data: {
+             msg: 'hello',
+             rawHtml: '<span style="color:red;">this should be red</span>',
+             dynamicId: 'oDiv',
+             isButtonDisabled: false,
+             number: 1,
+             ok: true,
+             message: 'Hello Vue.js!',
+             id: 'myDiv'
+         }
+     })
+    </script>
+</body>
+</html>
